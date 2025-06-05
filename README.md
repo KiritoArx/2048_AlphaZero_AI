@@ -9,4 +9,18 @@ g++ -std=c++17 merge.cpp main.cpp -o merge_example
 ./merge_example
 ```
 
-The code is intended to be a starting point for experimenting with Monte Carlo Tree Search and AlphaZero-style training.
+The project also includes a small Python framework implementing the same board logic. A simple neural network (`net.py`) and Monte Carlo Tree Search (`mcts.py`) can be used to run self‑play games with `train.py`.
+
+Install Python dependencies with:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run a short self‑play session:
+
+```bash
+python train.py
+```
+
+This is a skeleton for experimenting with AlphaZero-style training on a 5×6 board.
