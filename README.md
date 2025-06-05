@@ -17,7 +17,7 @@ Install Python dependencies with:
 pip install -r requirements.txt
 ```
 
-Run a short self‑play session:
+Run a short training session (self-play plus updates with gradient clipping):
 
 ```bash
 python train.py

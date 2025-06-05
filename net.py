@@ -12,6 +12,12 @@ class SimpleNet(nn.Module):
         self.policy_head = nn.Linear(64 * COLUMN_COUNT * MAX_HEIGHT, COLUMN_COUNT)
         self.value_head = nn.Linear(64 * COLUMN_COUNT * MAX_HEIGHT, 1)
 
+        for m in self.modules():
+            if isinstance(m, (nn.Conv2d, nn.Linear)):
+                nn.init.kaiming_normal_(m.weight, nonlinearity="relu")
+                if m.bias is not None:
+                    nn.init.zeros_(m.bias)
+
     def forward(self, x):
         x = F.relu(self.conv1(x))
         x = F.relu(self.conv2(x))
